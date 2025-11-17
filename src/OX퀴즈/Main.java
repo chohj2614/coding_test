@@ -17,7 +17,7 @@ public class Main {
                 if(str.charAt(j) == 'O'){
                     prev++;
                     sum += prev;
-                }  else if (str.charAt(j) == 'X'){
+                }  else{
                     prev = 0;
                 }
             }
