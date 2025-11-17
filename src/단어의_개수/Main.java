@@ -9,10 +9,8 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String input = br.readLine();
 
-        String[] msg = input.strip().split(" ");
-        for(int i = 0; i < msg.length; i++){
-
-        }
-        System.out.print(msg.length);
+        String temp = input.strip();
+        String[] msg = temp.split(" ");
+        System.out.println(msg.length);
     }
 }
