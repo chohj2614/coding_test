@@ -3,26 +3,20 @@ package A_plus_B_4;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args)throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String[] input = br.readLine().split(" ");
-        String temp = "";
-        for(int i = 0; i < input.length - 1; i++){
-            int a = Integer.parseInt(input[i]);
-            int b = Integer.parseInt(input[i+1]);
+        Scanner input = new Scanner(System.in);
+        String curLine;
 
-            if(a < b && temp != "descending"){
-                temp = "ascending";
-            }
-            else if(a > b && temp != "ascending"){
-                temp = "descending";
-            } else{
-                temp = "mixed";
-                break;
-            }
+        while(input.hasNextLine()){
+            curLine = input.nextLine();
+            String[] cur = curLine.split(" ");
+            int a = Integer.parseInt(cur[0]);
+            int b = Integer.parseInt(cur[1]);
+            System.out.println(a+b);
         }
-        System.out.println(temp);
     }
 }
