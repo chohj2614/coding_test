@@ -7,22 +7,16 @@ import java.io.InputStreamReader;
 public class Main {
     public static void main(String[] args)throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String[] input = br.readLine().split(" ");
-        String temp = "";
-        for(int i = 0; i < input.length - 1; i++){
-            int a = Integer.parseInt(input[i]);
-            int b = Integer.parseInt(input[i+1]);
-
-            if(a < b && temp != "descending"){
-                temp = "ascending";
-            }
-            else if(a > b && temp != "ascending"){
-                temp = "descending";
-            } else{
-                temp = "mixed";
-                break;
+        int N = 9;
+        int max_v = 0;
+        int max_i = 0;
+        for(int i =0; i < N; i++){
+            int cur = Integer.parseInt(br.readLine());
+            if(cur > max_v){
+                max_v = cur;
+                max_i = i+1;
             }
         }
-        System.out.println(temp);
+        System.out.println(max_v + "\n" + max_i);
     }
 }
