@@ -36,3 +36,13 @@ public class Main {
         System.out.print(sb.toString());
     }
 }
+
+/*
+    NestedList로 나이,이름을 묶어서 list로 만듬
+    List< type > 은 한가지로 통일해야 돼서 String으로 저장
+    정렬을 할때 나이도 String이라 비교가 이상하게 됨
+    새로운 class person을 만듬
+    List<Person>으로 다시 저장
+    Comparator를 사용해서 나이만 정렬
+
+* */
