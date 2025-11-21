@@ -9,20 +9,20 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int T = Integer.parseInt(br.readLine());
         for(int i = 0; i < T; i++){
-            String[] cur = br.readLine().split(" ");
+            String cur = br.readLine();
             int l = 0;
             boolean yes = true;
-            for(String s : cur){
-                if(s.equals("(")){
+            for(char c : cur.toCharArray()){
+                if( c == '('){
                     l++;
                 }
-                if(s.equals(")") && l > 0){
+                else if( c == ')' && l > 0){
                     l--;
                 }else{
                     yes = false;
                 }
             }
-            if(yes){
+            if(yes && l == 0){
                 System.out.println("YES");
             } else {
                 System.out.println("NO");
