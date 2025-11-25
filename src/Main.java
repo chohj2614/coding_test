@@ -1,38 +1,28 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int T = Integer.parseInt(br.readLine());
+        String[] str = br.readLine().split(" ");
 
-        for(int t = 0; t < T; t++){
-            int k = Integer.parseInt(br.readLine());
-            int n = Integer.parseInt(br.readLine());
-            int[] cur_lev = IntStream.range(1,n+1).toArray();
-            int[] prev_lev = new int[n];
-
-            for(int i = 1; i <= k; i++){ //0 ~ k 층
-                prev_lev = cur_lev;
-                for(int j = 0; j < n; j++){
-                    cur_lev[j] = getSum(prev_lev, j);
-                }
-            }
-            System.out.println(cur_lev[n-1]);
-        }
-    }
-    static int getSum(int[] prev, int j){
-        int sum = 0;
-        for(int i = 0; i <= j; i++){
-            sum += prev[i];
-        }
-        return sum;
+        int A = Integer.parseInt(str[0]);
+        int B = Integer.parseInt(str[1]);
+        int V = Integer.parseInt(str[2]);
+//        int count = 1;
+//        while(V>0){
+//            V -= A;
+//            if(V <= 0){
+//                break;
+//            }
+//            V += B;
+//            count++;
+//        } loop 쓰면 시간 초과
+        int count = (int)Math.ceil((V - A) / (double)(A-B))  + 1;
+                // V- A : 마지막 날 올라갔을 높이를 차감
+                // A-B 로서 마지막 날 까지 필요한 날짜
+                // 1 : 첫날도 포함이라 +1
+        System.out.println(count);
     }
 }
-
-/*
- 1 3 6 10 15 21 28
- 1 2 3  4  5 6  7
- */
