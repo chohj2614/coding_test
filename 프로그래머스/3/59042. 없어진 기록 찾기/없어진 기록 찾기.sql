@@ -17,3 +17,4 @@ SELECT AO.ANIMAL_ID, AO.NAME
 FROM ANIMAL_OUTS AO
 WHERE AO.ANIMAL_ID NOT IN(SELECT ANIMAL_ID FROM ANIMAL_INS); 
 -- NULL이 포함 될 경우 문법적 문제 발생 가능 문제 발생 가능
+  -- IN 에서 null을 알아서 처리한다.
