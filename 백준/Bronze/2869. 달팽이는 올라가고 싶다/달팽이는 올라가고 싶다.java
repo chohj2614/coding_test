@@ -18,9 +18,11 @@ public class Main {
 //            }
 //            V += B;
 //            count++;
-//        }
+//        } loop 쓰면 시간 초과
         int count = (int)Math.ceil((V - A) / (double)(A-B))  + 1;
-
+                // V- A : 마지막 날 올라갔을 높이를 차감
+                // A-B 로서 마지막 날 까지 필요한 날짜
+                // 1 : 첫날도 포함이라 +1
         System.out.println(count);
     }
 }
