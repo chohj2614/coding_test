@@ -6,3 +6,10 @@ B.BOOK_ID = BS.BOOK_ID
 WHERE DATE_FORMAT(BS.SALES_DATE, '%Y-%m') = '2022-01'
 GROUP BY B.CATEGORY
 ORDER BY CATEGORY;
+
+/*
+원래는 INNER JOIN으로 했지만
+문제에 카테고리가 모두 SALES가 있다는 전제가 없기에
+INNER JOIN 사용 시 SALE없는 CATEGORY가 누락됨.
+그래서 LEFT JOIN으로 모든 CATEGORY 출력.
+*/
