@@ -6,50 +6,44 @@ import java.util.LinkedList;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int compN = Integer.parseInt(br.readLine());
-        int edgeN = Integer.parseInt(br.readLine());
-
-        Graph graph = new Graph(compN);
-        for(int i = 0; i < edgeN; i++){
-            String[] newInput = br.readLine().split(" ");
-            int v = Integer.parseInt(newInput[0]);
-            int w = Integer.parseInt(newInput[1]);
-            graph.addEdge(v,w);
+        int N = Integer.parseInt(br.readLine());
+        Apt apart = new Apt(N);
+        for(int i = 0 ; i < N; i++){
+            int[] nums = new int[N];
+            char[] cs = br.readLine().toCharArray();
+            for(int j = 0; j < N; j++ ){
+                nums[j] = Integer.parseInt(Character.toString(cs[j]));
+            }
+            apart.drawMap(nums, i);
         }
 
-        graph.DFS(1);
-        System.out.println(graph.count);
+
+        System.out.println();
     }
 
-    public static class Graph{
-        private int V;
-        private LinkedList<Integer> adj[];
-        private boolean[] visited;
+    public static class Apt{
+        private int N;
+        private LinkedList<Integer> rec;
         private int count;
+        private int[][] aptMap;
+        private boolean[][] visited;
 
-        Graph(int v){
-            V = v;
-            count = 0;
-            adj = new LinkedList[v + 1];
-            for(int i = 1; i <= v; i++){
-                adj[i] = new LinkedList();
+        Apt(int n){
+            N = n;
+            aptMap = new int[N][N];
+            visited = new boolean[N][N];
+        }
+
+        void drawMap(int[] nums, int row){
+            for(int i = 0; i < N; i++){
+                aptMap[row][i] = nums[i];
             }
-            visited = new boolean[V + 1];
         }
 
-        void addEdge(int v, int w){
-            adj[v].add(w);
-            adj[w].add(v);
-        }
-
-        void DFS(int v){
-            visited[v] = true;
-
-            for(int next: adj[v]){
-                if(!visited[next]){
-                    count++;
-                    DFS(next);
-                }
+        void DFS(int sx, int sy){
+            visited[sx][sy] = true;
+            if(aptMap[sx][sy] == 1){
+                count++;
             }
 
         }
