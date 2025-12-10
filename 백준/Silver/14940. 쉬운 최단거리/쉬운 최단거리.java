@@ -24,14 +24,14 @@ public class Main {
             for(int j = 0; j < m; j++){
                 int temp = Integer.parseInt(input[j]);
                 nums[j] = temp;
-                if(temp == 2){
+                if(temp == 2){ //목표 지점 좌표 저장
                     sx = i;
                     sy = j;
                 }
             }
             brd.fillBoard(nums, i);
         }
-        brd.BFS(sx, sy);
+        brd.BFS(sx, sy); //목표 지점에서 시작 후 거리 업데이트
         for(int i = 0; i < n; i++){
             for(int x: brd.dist[i]){
                 sb.append(x+" ");
@@ -52,6 +52,7 @@ public class Main {
             M = m;
             board = new int[N][M];
             dist = new int[N][M];
+            // 모두 이동 가능하다 여기고 -1로 초기화
             for(int i = 0; i < N; i++){
                 Arrays.fill(dist[i], -1);
             }
@@ -66,7 +67,7 @@ public class Main {
         void BFS(int sx, int sy){
             boolean[][] visited = new boolean[N][M];
             int[][] mv = {{0,1}, {0,-1}, {1,0}, {-1,0}};
-            dist[sx][sy] = 0;
+            dist[sx][sy] = 0; // 목표 지점인 2 는 dist 가 0
             visited[sx][sy] = true;
             Queue<int[]> queue = new LinkedList<>();
             queue.add(new int[]{sx,sy});
@@ -87,6 +88,8 @@ public class Main {
                     }
                 }
             }
+            
+            //벽이라 못 가는 곳은 모두 0으로 초기화
             for(int i = 0; i < N; i++){
                 for(int j = 0; j < M; j++){
                     if(board[i][j] == 0){
