@@ -46,23 +46,24 @@ public class Main {
 
         int BFS(){
             Queue<int[]> queue = new LinkedList<>();
-            queue.add(new int[]{0,0});
-            visited[0][0] = true;
+            queue.add(new int[]{0,0}); // Queue 안에 int[] 를 넣을 때는 명시적 배열로 넣음
+            visited[0][0] = true; // 시작 위치 방문 표시
             int[][] dist = new int[N][M];
-            int[][] mv = {{0,1}, {0,-1}, {1,0}, {-1, 0}};
-            dist[0][0] = 1;
+            int[][] mv = {{0,1}, {0,-1}, {1,0}, {-1, 0}}; // 상하좌우 이동
+            dist[0][0] = 1; // *** 미로 문제 시작점은 1 ***
 
             while(!queue.isEmpty()){
                 int[] cur = queue.poll();
                 for(int[] v : mv){
                     int nx = cur[0] + v[0];
                     int ny = cur[1] + v[1];
+                    // 이동 위치 validity 체크
                     if(nx < N && nx > -1 && ny < M && ny > -1){
-                        if(board[nx][ny] != 0){
-                            if(!visited[nx][ny]){
-                                queue.add(new int[]{nx,ny});
-                                visited[nx][ny] = true;
-                                dist[nx][ny] = dist[cur[0]][cur[1]] + 1;
+                        if(board[nx][ny] != 0){ // 벽이 아닌지 확인
+                            if(!visited[nx][ny]){ // 방문 여부 확인
+                                queue.add(new int[]{nx,ny}); // queue 에 넣기
+                                visited[nx][ny] = true; // 방문 표시
+                                dist[nx][ny] = dist[cur[0]][cur[1]] + 1; // dist 업데이트
                             }
                         }
                     }
