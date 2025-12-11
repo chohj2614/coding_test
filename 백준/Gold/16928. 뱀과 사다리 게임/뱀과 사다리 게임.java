@@ -38,13 +38,14 @@ public class Main {
 
         while (!queue.isEmpty()){
             int cur = queue.poll();
-            if(shortcuts[cur] != 0){
-                dist[shortcuts[cur]] = dist[cur];
-                cur = shortcuts[cur];
-            }
-            for(int i = 0; i < 7; i++){
+
+            for(int i = 1; i < 7; i++){ // 숫자는 1~6. 0 불필요
                 int next = cur + i;
-                if(next <= 100 && dist[next] == -1){
+                if (next > 100) continue;
+                if(shortcuts[next] != 0){ // 사다리 or 뱀 적용
+                    next = shortcuts[next];
+                }
+                if(dist[next] == -1){ // 방문 여부 확인
                     queue.add(next);
                     dist[next] = dist[cur] + 1;
                 }
