@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+<<<<<<< Updated upstream
         String[] inputs = br.readLine().split(" ");
         int N = Integer.parseInt(inputs[0]);
         int K = Integer.parseInt(inputs[1]);
@@ -23,5 +24,9 @@ public class Main {
         }
 
         System.out.println(count);
+=======
+
+        System.out.println();
+>>>>>>> Stashed changes
     }
 }
