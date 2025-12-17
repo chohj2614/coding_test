@@ -19,11 +19,11 @@ public class Main {
                 map.put(input[1],map.getOrDefault(input[1],0) + 1);
             }
             int comb = 1;
-            for(String k: map.keySet()){
+            for(String k: map.keySet()){ // 종류별로 개수만큼 곱하기
                 comb *= 1 + map.get(k);
 
             }
-            comb -= 1;
+            comb -= 1; // 모든 컴비네이션 구한 후 아무것도 안골랐을 하나의 경우를 제외
             sb.append(comb + "\n");
         }
 
