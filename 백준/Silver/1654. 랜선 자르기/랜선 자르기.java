@@ -15,8 +15,11 @@ public class Main {
         }
         Arrays.sort(lengths);
         long result = 0;
-        long left = 1;
-        long right = lengths[lengths.length-1];
+        // 이분 탐색
+            // 가능하면 더 긴 길이 탐색
+            // 불가능하면 더 짧은 길이 탐색
+        long left = 1; // 가장 짧은 길이 = 1cm
+        long right = lengths[lengths.length-1]; // 가장 긴건 주어진 길이 중 최댓값
         while(left <= right){
             long mid = (left + right)/ 2;
             if(check(mid, lengths, N)) {// 더 긴 길이 탐색
