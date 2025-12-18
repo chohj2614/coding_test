@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
-        // 1. 람다 형식
+        // 1. 람다 형식 --> 2 보다 성능이 좋음
         PriorityQueue<Integer> pq =
             new PriorityQueue<>((a,b) -> {
                 int absA = Math.abs(a);
