@@ -10,19 +10,19 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
         // 1. 람다 형식
-//        PriorityQueue<Integer> pq =
-//            new PriorityQueue<>((a,b) -> {
-//                int absA = Math.abs(a);
-//                int absB = Math.abs(b);
-//                if(absA!= absB) return absA - absB; // 다를 경우 절대값 비교
-//                return a-b; //같은 절대값 -> 자연수로 비교
-//            });
-        // 2. Comparator.comparingInt 형식
         PriorityQueue<Integer> pq =
-                new PriorityQueue<>(
-                        Comparator.comparing((Integer x) -> Math.abs(x))
-                                .thenComparingInt(x->x)
-                );
+            new PriorityQueue<>((a,b) -> {
+                int absA = Math.abs(a);
+                int absB = Math.abs(b);
+                if(absA!= absB) return absA - absB; // 다를 경우 절대값 비교
+                return a-b; //같은 절대값 -> 자연수로 비교
+            });
+        // 2. Comparator.comparingInt 형식
+//        PriorityQueue<Integer> pq =
+//                new PriorityQueue<>(
+//                        Comparator.comparing((Integer x) -> Math.abs(x))
+//                                .thenComparingInt(x->x)
+//                );
         for(int i = 0; i < N; i++){
             int cur = Integer.parseInt(br.readLine());
             if(cur == 0){
