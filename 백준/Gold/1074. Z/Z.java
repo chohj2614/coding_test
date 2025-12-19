@@ -14,8 +14,17 @@ public class Main {
         int result = search(size,R,C);
 
         System.out.println(result);
+//        System.out.println(zOrder(size,R,C));
     }
-
+    // ???
+//    public static int zOrder(int n, int r, int c){ // 비트 계산 이용
+//        int ans = 0;
+//        for (int i = 0; i < n; i++) {
+//            ans |= ((r >> i) & 1) << (2*i + 1);
+//            ans |= ((c >> i) & 1) << (2*i);
+//        }
+//        return ans;
+//    }
     public static int search(int n, int r, int c){
         if(n == 1 ) return 0; // 쪼갤게 없음
         int half = n / 2; // 사분면 나누기
