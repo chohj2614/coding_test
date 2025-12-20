@@ -56,6 +56,14 @@ public class Main {
                 }
 //                sb.append(deque2.toString());
             }
+            // 모든 배열을 출려해서 비었을 때, ","는 없기 때문에 마지막 char 지우면 ]만 남음
+            /* 반례 : 
+            입력: 1
+                 D
+                 1
+                 [10]
+            출력: []
+            */
             if(!deque1.isEmpty()) sb.deleteCharAt(sb.length() -1); // 마지막 ',' 지우기
             sb.append("]\n");
         }
